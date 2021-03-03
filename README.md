@@ -1,3 +1,17 @@
+# Erbium
+
+**Erbium** is a direct port of Erlang and OTP to bare-metal, with the objective of converting it into a full ring 0
+kernel. All work on the machine is done the through the ERTS, and the ERTS is the sole native-level user of the
+machine's resources, with all allocations of resources being granted by it to its own Erlang processes.
+
+The only components of the original ERTS code modified are those which manage interaction with the host operating
+system. These components are reimplented as versions which provide the same functionality at the bare-metal level.
+
+Modifications to the build process are also necessary in order to redirect the output to a bootable kernel image.
+Currently, the project is being developed solely for a single platform: the Raspberry Pi 3 (B/B+ models should be
+compatible). Once a fully functional build of Erbium is complete, priority number one will be abstracting the codebase
+to allow for the development of builds for other platforms.
+
 # [Erlang/OTP](https://www.erlang.org)
 
 **Erlang** is a programming language and runtime system for building massively scalable soft real-time systems with requirements on high availability. 
